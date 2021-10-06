@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class ServiceClientApplication {
+public class ServiceClientApplication /*extends SpringBootServletInitializer*/{
 	
 //	@Value("${server.port}")
 //	private int port;
@@ -17,7 +19,8 @@ public class ServiceClientApplication {
 	@Autowired
 	private MyPropertiesConfigure myProer;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args){
+		//args =new String[] {"--spring.config.location=file:${user.home}/cloud-conf/serviceName.properties"};
 		SpringApplication.run(ServiceClientApplication.class, args);
 	}
 
@@ -28,4 +31,12 @@ public class ServiceClientApplication {
 			System.out.println("le proxy Server : " + myProer.getProxyServer());
 		};
 	}
+	
+	/*
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		// TODO Auto-generated method stub
+		return builder.sources(ServiceClientApplication.class);
+	}
+	*/
 }

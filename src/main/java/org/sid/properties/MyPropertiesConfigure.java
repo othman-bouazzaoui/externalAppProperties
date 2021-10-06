@@ -1,10 +1,12 @@
 package org.sid.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Component;
 
+@Configuration
 @Component
 @ConfigurationProperties
 //@PropertySource({"classpath:app.properties","classpath:proxy.properties"})
